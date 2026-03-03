@@ -131,7 +131,7 @@ app.post('/api/reset', (req, res) => {
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // 所有其他路由返回 index.html
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
